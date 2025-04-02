@@ -2,13 +2,11 @@
 
 set -xe -o pipefail
 
-# --- Configuration ---
-DEFAULT_COMMIT="HEAD"
-DEFAULT_RECIPIENT="moio@suse.com"
+# Sends a git patch via email
 
-# --- Functions ---
+COMMIT=${1:-HEAD}
+RECIPIENT=${2:-moio@suse.com}
 
-# Function to display usage information.
 usage() {
   cat <<EOF
 Usage: $0 [OPTIONS]
@@ -16,9 +14,9 @@ Usage: $0 [OPTIONS]
 Send a git patch via email.
 
 Options:
-  -c COMMIT_ID   Specify the git commit ID (default: ${DEFAULT_COMMIT})
-  -r RECIPIENT   Specify the recipient email address (default: ${DEFAULT_RECIPIENT})
-  -h             Display this help message.
+  -c COMMIT_ID   Specify the git commit ID (default: ${COMMIT})
+  -r RECIPIENT   Specify the recipient email address (default: ${RECIPIENT})
+  -h             Display this help message
 
 EOF
   exit "$1"
@@ -66,8 +64,8 @@ send_email() {
 # --- Main ---
 
 # Set default values.
-commit_id="${DEFAULT_COMMIT}"
-recipient="${DEFAULT_RECIPIENT}"
+commit_id="${COMMIT}"
+recipient="${RECIPIENT}"
 
 # Parse command-line options.
 while getopts "c:r:h" opt; do
