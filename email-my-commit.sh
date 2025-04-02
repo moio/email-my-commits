@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Script to send a git patch via email.
+set -xe -o pipefail
 
 # --- Configuration ---
 DEFAULT_COMMIT="HEAD"
