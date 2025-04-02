@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -xe -o pipefail
+set -euo pipefail
 
 # Sends a git patch via email
 
