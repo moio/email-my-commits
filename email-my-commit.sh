@@ -85,8 +85,6 @@ while getopts "c:r:h" opt; do
   esac
 done
 shift "$((OPTIND - 1))"
-
-# Check for extra arguments.
 if [ "$#" -gt 0 ]; then
   usage 1
 fi
