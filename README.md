@@ -12,7 +12,7 @@ echo "git send-email HEAD~" > .git/hooks/post-commit
 chmod +x .git/hooks/post-commit
 
 # Configure destination address
-git config set sendemail.to codingpolicy@suse.com
+git config set sendemail.to ai-assisted-patches@suse.com
 ```
 
 ## Usage
